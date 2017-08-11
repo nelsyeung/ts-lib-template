@@ -1,0 +1,56 @@
+{
+  "name": "library",
+  "version": "0.1.0",
+  "description": "library description",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "npm run prettier && tslint {src,test}/**/*.ts --format stylish",
+    "prettier": "prettier --parser typescript --single-quote --trailing-comma es5 --write src/**/*.ts",
+    "start": "tsc -w",
+    "test": "npm run lint && nyc --check-coverage --lines 100 mocha",
+    "test:watch": "mocha -w --reporter min"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nelsyeung/ts-lib-template.git"
+  },
+  "keywords": [
+    "browser",
+    "library"
+  ],
+  "author": "Nelson Yeung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nelsyeung/ts-library-template/issues"
+  },
+  "homepage": "https://github.com/nelsyeung/ts-library-template",
+  "dependencies": {
+    "core-js": "^2.5.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.41",
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0",
+    "nyc": "^11.1.0",
+    "prettier": "^1.5.3",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.6.0",
+    "tslint-config-airbnb": "^5.2.1",
+    "typescript": "^2.4.2"
+  },
+  "nyc": {
+    "require": [
+      "ts-node/register"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  }
+}
